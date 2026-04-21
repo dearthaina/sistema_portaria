@@ -33,3 +33,7 @@ Este projeto foi criado com fins de estudo, visando praticar conceitos fundament
 2. Baixe ou clone este repositório;
 3. No terminal, navegue até a pasta do projeto;
 4. Execute o comando: python sistema_portaria.py
+
+## 💡 Melhorias futuras
+- Implementar validação de nome com loop separado para evitar reinício do fluxo em caso de erro
+- Calcular a idade com base na data de nascimento
