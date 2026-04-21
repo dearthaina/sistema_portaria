@@ -20,6 +20,9 @@ Este projeto foi criado com fins de estudo, visando praticar conceitos fundament
 ## 📌 Status do projeto
 🚧 Em desenvolvimento
 
+## 📸 Exemplo de uso
+![Sistema rodando](print_sistema.png)
+
 ## ▶️ Como executar
 1. Certifique-se de ter o Python instalado na sua máquina;
 2. Baixe ou clone este repositório;
