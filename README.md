@@ -6,12 +6,17 @@ Projeto desenvolvido em Python com o objetivo de simular o controle de acesso de
 Este projeto foi criado com fins de estudo, visando praticar conceitos fundamentais de programação, como:
 - Estruturas condicionais (if/else)
 - Funções
+- Laços de repetição (while)
+- Listas (armazenamento de dados)
 - Tratamento de exceções
 - Interação com o usuário
 
 ## ⚙️ Funcionalidades
 - Verificação de idade para permitir ou negar entrada
+- Cadastro contínuo de pessoas via terminal
+- Armazenamento de pessoas permitidas
 - Tratamento de entradas inválidas
+- Exibição de relatório final com lista de pessoas
 - Interface simples via terminal
 
 ## 🛠️ Tecnologias utilizadas
