@@ -36,4 +36,5 @@ Este projeto foi criado com fins de estudo, visando praticar conceitos fundament
 
 ## 💡 Melhorias futuras
 - Implementar validação de nome com loop separado para evitar reinício do fluxo em caso de erro
-- Calcular a idade com base na data de nascimento
+- Controle de permanência
+- Geração de relatório em PDF
