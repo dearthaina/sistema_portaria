@@ -1,9 +1,8 @@
 # Sistema de Portaria
-
 Projeto desenvolvido em Python com o objetivo de simular o controle de acesso de pessoas em uma portaria, realizando a validação de idade para entrada.
 
 ## 📌 Objetivo
-Este projeto foi criado com fins de estudo, visando praticar conceitos fundamentais de programação, como:
+Este projeto foi criado para praticar conceitos fundamentais de programação, como:
 - Estruturas condicionais (if/else)
 - Funções
 - Laços de repetição (while)
@@ -35,6 +34,5 @@ Este projeto foi criado com fins de estudo, visando praticar conceitos fundament
 4. Execute o comando: python sistema_portaria.py
 
 ## 💡 Melhorias futuras
-- Implementar validação de nome com loop separado para evitar reinício do fluxo em caso de erro
 - Controle de permanência
 - Geração de relatório em PDF
