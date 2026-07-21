@@ -39,7 +39,7 @@ Este projeto foi criado para praticar conceitos fundamentais de programação, c
 
 ## 📸 Exemplo de uso
 
-![Sistema rodando](print_sistema.png)
+![Sistema rodando](print-sistema.png)
 
 ## 💡 Melhorias futuras
 - Geração de relatório em PDF
