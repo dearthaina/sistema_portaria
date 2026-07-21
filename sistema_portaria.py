@@ -1,6 +1,8 @@
-from datetime import date
+from datetime import date, datetime
 
-lista_pessoas = []
+#Armazenamento de registros
+registro_entrada = []
+registro_saida = []
 
 # Regras de negócio: A entrada é permitida para pessoas acima de 18 anos.
 def calcular_idade(dia, mes, ano):
@@ -12,16 +14,14 @@ def calcular_idade(dia, mes, ano):
     return idade
 
 def validar_idade(idade):
-    if idade >=18:
-        return 'Entrada permitida!'
-    else:  
-        return 'Entrada proibida!'
-
-# Entrada de dados: Nome e data de nascimento
+    if idade >=18:  
+        return True
+    
+# Entrada de dados: Nome e Data de nascimento
 
 def obter_nome():     
     while True:
-        nome = input('Qual é o seu nome?')
+        nome = input('Digite o Nome e último Sobrenome: ')
 
         if nome.replace(" ", "").isalpha():
             return nome
@@ -44,30 +44,126 @@ def obter_data():
                 print("A data de nascimento não pode ser no futuro!")
                 continue
 
-            return dia, mes, ano     
+            return data_nascimento     
 
         except ValueError:
             print('Digite uma data válida!')
 
-# Fluxo principal
-while True:
+#Registrar horário     
+
+def registrar_horario():
+    return datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
+# Registrar entrada
+
+def registrar_entrada():
+
+    print("\n===== REGISTRO DE ENTRADA =====")
+
     nome = obter_nome()
-    dia, mes, ano = obter_data()
 
-    idade = calcular_idade(dia, mes, ano)
+    data_nascimento = obter_data()
 
-    print(f'Idade calculada: {idade} anos')
+    idade = calcular_idade(
+        data_nascimento.day,
+        data_nascimento.month,
+        data_nascimento.year
+    )
 
-    resultado = validar_idade(idade)
-    print(resultado)
+    if validar_idade(idade):
 
-    if resultado == 'Entrada permitida!':
-        lista_pessoas.append(nome)
+        pessoa = {
+            "Nome": nome,
+            "Nascimento": data_nascimento.strftime("%d/%m/%Y"),
+            "Entrada": registrar_horario()
+        }
 
-    continuar = input('Deseja cadastrar outra pessoa? (s/n): ')
-    if continuar.lower() != 's':
-        break
+        registro_entrada.append(pessoa)
 
-print('\nPessoas que entraram:')
-for pessoa in lista_pessoas:
-    print(pessoa)
+        print("\nEntrada permitida!")
+        print("Entrada registrada com sucesso.")
+
+    else:
+        print("\nEntrada proibida!")
+        print("Usuário não possui idade permitida.")
+
+# Registrar saída
+
+def registrar_saida():
+
+    print("\n===== REGISTRO DE SAÍDA =====")
+
+    if not registro_entrada:
+
+        print("Não existem pessoas registradas no local.")
+
+        return
+
+    print("\nPessoas presentes:")
+
+    for indice, pessoa in enumerate(registro_entrada, start=1):
+
+        print(f"{indice} - {pessoa['Nome']}")
+
+    escolha = int(
+        input("\nDigite o número da pessoa que saiu: ")
+    )
+
+    pessoa = registro_entrada[escolha - 1]
+
+    saida = {
+
+        "Nome": pessoa["Nome"],
+        "Saída": registrar_horario()
+    }
+
+    registro_saida.append(saida)
+
+    print("\nSaída registrada com sucesso!")
+
+#Relatório final
+def gerar_relatorio():
+
+    print("\n===== RELATÓRIO DE PERMANÊNCIA =====\n")
+
+    print(
+        f"{'Nome':20}"
+        f"{'Nascimento':15}"
+        f"{'Entrada':22}"
+        f"{'Saída':22}"
+    )
+
+    print("-" * 80)
+
+    for entrada in registro_entrada:
+
+        horario_saida = "Sem registro"
+
+        for saida in registro_saida:
+
+            if saida["Nome"] == entrada["Nome"]:
+                horario_saida = saida["Saída"]
+
+        print(
+
+            f"{entrada['Nome']:20}"
+            f"{entrada['Nascimento']:15}"
+            f"{entrada['Entrada']:22}"
+            f"{horario_saida:22}"
+        )
+
+def main():
+
+    while True:
+
+        registrar_entrada()
+
+        continuar = input("\nDeseja registrar outra entrada? (s/n): ")
+
+        if continuar.lower() != "s":
+            break
+
+    registrar_saida()
+    gerar_relatorio()
+
+main()
