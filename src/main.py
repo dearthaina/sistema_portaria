@@ -1,4 +1,5 @@
 from datetime import date, datetime
+from relatorios import gerar_relatorio
 
 #Armazenamento de registros
 registro_entrada = []
@@ -121,37 +122,6 @@ def registrar_saida():
 
     print("\nSaída registrada com sucesso!")
 
-#Relatório final
-def gerar_relatorio():
-
-    print("\n===== RELATÓRIO DE PERMANÊNCIA =====\n")
-
-    print(
-        f"{'Nome':20}"
-        f"{'Nascimento':15}"
-        f"{'Entrada':22}"
-        f"{'Saída':22}"
-    )
-
-    print("-" * 80)
-
-    for entrada in registro_entrada:
-
-        horario_saida = "Sem registro"
-
-        for saida in registro_saida:
-
-            if saida["Nome"] == entrada["Nome"]:
-                horario_saida = saida["Saída"]
-
-        print(
-
-            f"{entrada['Nome']:20}"
-            f"{entrada['Nascimento']:15}"
-            f"{entrada['Entrada']:22}"
-            f"{horario_saida:22}"
-        )
-
 def main():
 
     while True:
@@ -164,6 +134,6 @@ def main():
             break
 
     registrar_saida()
-    gerar_relatorio()
+    gerar_relatorio(registro_entrada, registro_saida)
 
 main()
