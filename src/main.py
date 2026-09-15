@@ -126,14 +126,28 @@ def main():
 
     while True:
 
-        registrar_entrada()
+        print("\n===== SISTEMA DE CONTROLE DE ACESSO =====")
+        print("1 - Registrar entrada")
+        print("2 - Registrar saída")
+        print("3 - Gerar relatório")
+        print("4 - Sair")
 
-        continuar = input("\nDeseja registrar outra entrada? (s/n): ")
+        opcao = input("\nDigite uma opção: ")
 
-        if continuar.lower() != "s":
+        if opcao == "1":
+            registrar_entrada()
+
+        elif opcao == "2":
+            registrar_saida()
+
+        elif opcao == "3":
+            gerar_relatorio(registro_entrada, registro_saida)
+
+        elif opcao == "4":
+            print("\nPrograma encerrado.")
             break
 
-    registrar_saida()
-    gerar_relatorio(registro_entrada, registro_saida)
+        else:
+            print("\nOpção inválida. Digite uma opção de 1 a 4.")
 
 main()
