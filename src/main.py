@@ -18,7 +18,16 @@ def validar_idade(idade):
     if idade >=18:  
         return True
     
-# Entrada de dados: Nome e Data de nascimento
+# Entrada de dados: Registro de CPF, Nome e Data de nascimento
+
+def obter_cpf():
+    while True:
+        cpf = input('Digite o CPF (somente números): ')
+
+        if len(cpf) == 11 and cpf.isdigit():
+            return cpf
+            
+        print('Digite um CPF válido com 11 dígitos!')
 
 def obter_nome():     
     while True:
@@ -61,6 +70,8 @@ def registrar_entrada():
 
     print("\n===== REGISTRO DE ENTRADA =====")
 
+    cpf = obter_cpf()
+
     nome = obter_nome()
 
     data_nascimento = obter_data()
@@ -74,6 +85,7 @@ def registrar_entrada():
     if validar_idade(idade):
 
         pessoa = {
+            "CPF": cpf,
             "Nome": nome,
             "Nascimento": data_nascimento.strftime("%d/%m/%Y"),
             "Entrada": registrar_horario()

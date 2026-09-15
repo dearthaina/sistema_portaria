@@ -5,6 +5,7 @@ def gerar_relatorio(registro_entrada, registro_saida):
     print("\n===== RELATÓRIO DE PERMANÊNCIA =====\n")
 
     print(
+        f"{'CPF':15}"
         f"{'Nome':20}"
         f"{'Nascimento':15}"
         f"{'Entrada':22}"
@@ -24,6 +25,7 @@ def gerar_relatorio(registro_entrada, registro_saida):
 
         print(
 
+            f"{entrada['CPF']:15}"
             f"{entrada['Nome']:20}"
             f"{entrada['Nascimento']:15}"
             f"{entrada['Entrada']:22}"
